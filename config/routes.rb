@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comment/create'
+  get 'comment/destroy'
   get 'favorites/create'
   get 'favorites/destroy'
   devise_for :users
