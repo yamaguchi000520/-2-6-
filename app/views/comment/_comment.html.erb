@@ -1,0 +1,23 @@
+<div class="comment-area">
+  <table class="table">
+    <tbody>
+      <% book.comments.each |comment| %>
+      <td>
+        <%= link_to user_path(book.user.id) do %>
+        <%= image_tag book.user.get_profile_image, size:'50x50' %><br>
+          <%= user.name %>
+        <% end %>
+      </tb>
+      <tb>
+        <%= if book.user == current_user %>
+          <% link_to "delete", book_comment_path(comment.book, comment), method: :delete, class: %>
+        <% end %>
+      </tb>
+    </tbody>
+  </table>
+</div>
+<div>
+  <% form with model:[book, comment] do |f| %>
+    <%= f.text_area :comment, rows'5',placeholder: "This is comment area" %>
+    <%= f.submit "送信"
+</div>
